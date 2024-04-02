@@ -11,8 +11,8 @@ import plotly.express as px
 
 st.write("Hello World!")
 
-job_df = pd.read_csv('postings.csv')
-profile_df = pd.read_csv('updated_profile.csv')
+job_df = pd.read_csv("https://github.com/ChloeHo12/linkedin-job-postings-and-profile-analysis/blob/269b324d48e5001e65071676370ab10650d48b0e/postings.csv")
+profile_df = pd.read_csv("https://github.com/ChloeHo12/linkedin-job-postings-and-profile-analysis/blob/269b324d48e5001e65071676370ab10650d48b0e/updated_prodile.csv")
 
 title_list = list(job_df.job_title_categorized.unique())
 
