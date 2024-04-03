@@ -4,7 +4,9 @@
 
 **Abstract:** This project analyzes job postings and LinkedIn profiles in the data field, focusing on insights into the job market and skill requirements. It employs web scraping to gather data, followed by thorough cleaning, exploratory data analysis, and visualization. Using Natural Language Processing, relevant skills are extracted from job descriptions to create a recommendation system for matching job postings with candidate profiles. Additionally, a Random Forest Classifier model predicts job prospects based on education, skills, and experience, evaluated through various metrics and feature importance analysis. The project aims to offer valuable insights for job seekers, employers, and educational institutions in data science and analytics. 
 
-## Data sets
+## Data Collection
+
+The project starts by web scraping job postings and LinkedIn profiles from different cities using the LinkedIn website. The scraped data is stored in separate CSV files for each city, including: Seattle, New York, Austin, Chicago, Boston, San Francisco, Richmond, Baltimore. The two data sets can be found below:
 
 ### postings.csv
 
@@ -60,22 +62,45 @@ This file contains the processed LinkedIn profile data. The columns in this file
 | Has_job | Whether the user currently has a job (1 for yes, 0 for no) |
 | Uni_ranking | The national ranking of the user's university |
 
-## Project Structure
+## Data Cleaning and EDA
 
-The project is organized into the following main components:
+The data cleaning process involves the following steps:
 
-1. **Data Collection and Preprocessing**: Scripts and notebooks for web scraping job postings and LinkedIn profiles, as well as cleaning and preprocessing the collected data.
+1. **Loading Data**: The job posting data is loaded from the individual city CSV files.
+2. **Sampling**: For the analysis, only the first 430 rows from each city's dataset are retained.
+3. **Concatenation**: The sampled data from all cities is concatenated into a single DataFrame named `job_df`.
+4. **Column Manipulation**: Unnecessary columns are dropped, and the location information is split into separate 'City' and 'State' columns.
+5. **Job Title Categorization**: A new column 'job_title_categorized' is created, which categorizes job titles based on keywords like 'scientist', 'analyst', 'engineer', etc.
+6. **Data Exploration**: The distribution of job titles and industries is visualized using bar charts and pie charts.
+7. **Word Cloud**: A word cloud is generated for the job descriptions of a selected job title (e.g., 'data analyst') to understand the commonly used words and skills required.
 
-2. **Exploratory Data Analysis (EDA)**: Notebooks and scripts for exploratory data analysis, including visualizations and insights into the job market and skill requirements.
+## NLP Analysis
 
-3. **Natural Language Processing (NLP)**: Notebooks and scripts for applying NLP techniques to analyze job descriptions and extract relevant skills.
+The project utilizes natural language processing (NLP) techniques to analyze job descriptions and extract relevant skills. The main steps include:
 
-4. **Job Recommendation System**: Code for implementing a recommendation system that matches job postings with candidate profiles based on skills and experience.
+1. **Tokenization**: The job descriptions are tokenized using NLTK.
+2. **Skill Filtering**: A list of relevant skills is defined, and the tokenized job descriptions are filtered to keep only the relevant skills.
+3. **TF-IDF Vectorization**: The filtered job descriptions are vectorized using TF-IDF to calculate the importance of each skill.
+4. **Top Skills**: The top 10 most important skills are identified based on their TF-IDF scores and visualized using a bar chart.
 
-5. **Predictive Modeling**: Notebooks and scripts for building and evaluating a Random Forest Classifier model to predict the likelihood of securing a data job based on an individual's profile.
+## Recommendation System
 
-6. **Data Files**: The necessary data files, including job postings (`postings.csv`), LinkedIn profiles (`updated_profile.csv`), university rankings, and other relevant data sources.
+A recommendation system is implemented to match job postings with a candidate's profile. The steps involved are:
 
-7. **Visualizations**: Generated visualizations, such as bar charts, pie charts, word clouds, and feature importance plots.
+1. **Data Preparation**: The job postings data is loaded from the 'postings.csv' file.
+2. **TF-IDF Matrix**: A TF-IDF matrix is created from the job descriptions.
+3. **Cosine Similarity**: The cosine similarity between a given user profile and the job descriptions is calculated using the TF-IDF matrix.
+4. **Top Recommendations**: The top N most similar job postings are recommended based on the cosine similarity scores, ensuring that only one job from each unique company is included.
 
-8. **Documentation**: This README file and any additional documentation or reports related to the project.
+## Predictive Modeling
+
+The project builds a predictive model to estimate the probability of landing a data job based on a candidate's profile. The steps involved are:
+
+1. **Data Preprocessing**: The LinkedIn profile data is loaded and preprocessed, including feature engineering, one-hot encoding of categorical variables, and imputation of missing values.
+2. **Feature Selection**: Relevant features are selected based on their importance scores.
+3. **Model Training**: A Random Forest Classifier is trained on the preprocessed data.
+4. **Model Evaluation**: The model's performance is evaluated using metrics such as accuracy, precision, recall, and F1-score.
+5. **Feature Importance**: The importance of each feature is calculated and visualized.
+6. **Optimized Model**: An optimized Random Forest model is built using the selected important features.
+
+
