@@ -83,6 +83,12 @@ The project utilizes natural language processing (NLP) techniques to analyze job
 3. **TF-IDF Vectorization**: The filtered job descriptions are vectorized using TF-IDF to calculate the importance of each skill.
 4. **Top Skills**: The top 10 most important skills are identified based on their TF-IDF scores and visualized using a bar chart.
 
+**A demo can be found here:**
+
+https://github.com/ChloeHo12/linkedin-job-postings-and-profile-analysis/assets/98048503/e4b2a56e-5453-480a-8939-a33cebb5f3e1
+
+
+
 ## Recommendation System
 
 A recommendation system is implemented to match job postings with a candidate's profile. The steps involved are:
