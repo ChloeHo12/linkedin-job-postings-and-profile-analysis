@@ -1,7 +1,8 @@
 # LinkedIn Job Postings and Profiles Analysis 
-Link to Overview Report can be found [here](https://datalore.jetbrains.com/report/static/0CL9x6jJe9P5sBouyy2SYq/jdGDKzJ3vOvLxKrmm3k3r3).
 
-This project focuses on analyzing job postings and LinkedIn profiles related to data-centric roles, providing insights into the data job market, skill requirements, and the probability of landing a data job based on an individual's profile.
+**Link to Overview Report can be found [here](https://datalore.jetbrains.com/report/static/0CL9x6jJe9P5sBouyy2SYq/jdGDKzJ3vOvLxKrmm3k3r3).**
+
+**Abstract:** This project analyzes job postings and LinkedIn profiles in the data field, focusing on insights into the job market and skill requirements. It employs web scraping to gather data, followed by thorough cleaning, exploratory data analysis, and visualization. Using Natural Language Processing, relevant skills are extracted from job descriptions to create a recommendation system for matching job postings with candidate profiles. Additionally, a Random Forest Classifier model predicts job prospects based on education, skills, and experience, evaluated through various metrics and feature importance analysis. The project aims to offer valuable insights for job seekers, employers, and educational institutions in data science and analytics. 
 
 ## Data sets
 
