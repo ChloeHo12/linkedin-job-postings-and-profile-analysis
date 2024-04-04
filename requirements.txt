@@ -4,7 +4,7 @@ matplotlib
 seaborn 
 wordcloud==1.8.1
 nltk==3.5
-scikit-learn==0.24.1
+scikit-learn
 markdown-it-py==3.0.0
 numpy==1.26.4
 pandas==2.2.0
