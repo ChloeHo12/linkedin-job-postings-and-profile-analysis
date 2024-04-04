@@ -9,6 +9,8 @@ import plotly.express as px
 
 # NLP library
 import nltk
+nltk.download('wordnet')
+nltk.download('punkt')
 import nltkmodules
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
