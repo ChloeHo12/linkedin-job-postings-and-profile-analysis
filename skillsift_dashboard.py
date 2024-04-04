@@ -9,6 +9,7 @@ import plotly.express as px
 
 # NLP library
 import nltk
+import nltkmodules
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
