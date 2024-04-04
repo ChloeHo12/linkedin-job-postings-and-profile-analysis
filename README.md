@@ -72,16 +72,16 @@ The data cleaning process involves the following steps:
 4. **Column Manipulation**: Unnecessary columns are dropped, and the location information is split into separate 'City' and 'State' columns.
 5. **Job Title Categorization**: A new column 'job_title_categorized' is created, which categorizes job titles based on keywords like 'scientist', 'analyst', 'engineer', etc.
 6. **Data Exploration**: The distribution of job titles and industries is visualized using bar charts and pie charts.
-7. **Word Cloud**: A word cloud is generated for the job descriptions of a selected job title (e.g., 'data analyst') to understand the commonly used words and skills required.
 
 ## NLP Analysis
 
 The project utilizes natural language processing (NLP) techniques to analyze job descriptions and extract relevant skills. The main steps include:
 
 1. **Tokenization**: The job descriptions are tokenized using NLTK.
-2. **Skill Filtering**: A list of relevant skills is defined, and the tokenized job descriptions are filtered to keep only the relevant skills.
-3. **TF-IDF Vectorization**: The filtered job descriptions are vectorized using TF-IDF to calculate the importance of each skill.
-4. **Top Skills**: The top 10 most important skills are identified based on their TF-IDF scores and visualized using a bar chart.
+2. **Word Cloud**: A word cloud is generated for the job descriptions of a selected job title (e.g., 'data analyst') to understand the commonly used words and skills required.
+3. **Skill Filtering**: A list of relevant skills is defined, and the tokenized job descriptions are filtered to keep only the relevant skills.
+4. **TF-IDF Vectorization**: The filtered job descriptions are vectorized using TF-IDF to calculate the importance of each skill.
+5. **Top Skills**: The top 10 most important skills are identified based on their TF-IDF scores and visualized using a bar chart.
 
 **A demo can be found here:**
 
