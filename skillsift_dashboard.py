@@ -13,10 +13,7 @@ import nltkmodules
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-nltk.download('punkt')
-nltk.download('stopwords')
 from collections import Counter
-from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
 # Page title
