@@ -3,6 +3,7 @@ pandas
 matplotlib
 seaborn 
 wordcloud==1.8.1
+nltk==3.5
 altair==5.2.0
 attrs==23.2.0
 beautifulsoup4==4.12.3
