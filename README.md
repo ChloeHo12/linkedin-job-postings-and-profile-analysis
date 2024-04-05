@@ -2,7 +2,7 @@
 
 **Abstract:** This project analyzes job postings and LinkedIn profiles in the data field, focusing on insights into the job market and skill requirements. It employs web scraping to gather data, followed by thorough cleaning, exploratory data analysis, and visualization. Using Natural Language Processing, relevant skills are extracted from job descriptions to create a recommendation system for matching job postings with candidate profiles. Additionally, a Random Forest Classifier model predicts job prospects based on education, skills, and experience, evaluated through various metrics and feature importance analysis. 
 
-- **Curious about what skills are needed for different data roles? Click [here](https://dataskillsnavigator.streamlit.app/) to view `Data Skills Navigator` Interactive Dashboard.**
+- **Curious about what essential skills are required for various data roles? Click [here](https://dataskillsnavigator.streamlit.app/) to view `Data Skills Navigator` Interactive Dashboard.**
 - **Link to Overview Report can be found [here](https://datalore.jetbrains.com/report/static/0CL9x6jJe9P5sBouyy2SYq/zDL8zEkM5UpHNFbn54AW2H).**
 
 ## Data Collection
