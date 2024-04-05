@@ -4,7 +4,6 @@ import pandas as pd
 # Visualization libraries
 import matplotlib.pyplot as plt
 import seaborn as sns
-from wordcloud import WordCloud
 import plotly.express as px
 
 # NLP library
