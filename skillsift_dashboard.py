@@ -11,7 +11,6 @@ import plotly.express as px
 import nltk
 nltk.download('wordnet')
 nltk.download('punkt')
-import nltkmodules
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -121,7 +120,7 @@ relevant_libraries = ['matplotlib', 'numpy', 'pandas', 'nltk', 'seaborn', 'sciki
                      'pytorch', 'keras', 'beautifulsoup', 'scipy', 'statsmodels']
 filtered_lib = [token for token in tokens if token.isalnum() and token not in stop_words and token.lower() in relevant_libraries]
 cleaned_text_lib = ' '.join(filtered_lib)
-vectorizer = TfidfVectorizer()
+vectorizer = TfidfVectorizer(stop_words='english')
 X = vectorizer.fit_transform([cleaned_text_lib])
 lib_names = vectorizer.get_feature_names()
 tfidf_scores = X.T.toarray().flatten()
