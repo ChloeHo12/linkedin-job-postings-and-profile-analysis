@@ -76,7 +76,7 @@ The data cleaning process involves the following steps:
 
 ## NLP Analysis
 
-The project utilizes natural language processing (NLP) techniques to analyze job descriptions and extract relevant skills. The main steps include:
+The project utilizes natural language processing (NLP) techniques to analyze job descriptions and extract relevant skills, deployed as [Data Skills Navigator App](https://dataskillnavigator.streamlit.app/) via Streamlit. The main steps include:
 
 1. **Tokenization**: The job descriptions are tokenized using NLTK.
 2. **Word Cloud**: A word cloud is generated for the job descriptions of a selected job title (e.g., 'data analyst') to understand the commonly used words and skills required.
