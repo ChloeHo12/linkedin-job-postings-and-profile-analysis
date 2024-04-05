@@ -1,6 +1,6 @@
 # LinkedIn Job Postings and Profiles Analysis 
 
-- **Link to Data Skills Navigator can be found [here](https://dataskillnavigator.streamlit.app/).**
+- **Link to Data Skills Navigator can be found [here](https://dataskillsnavigator.streamlit.app/).**
 - **Link to Overview Report can be found [here](https://datalore.jetbrains.com/report/static/0CL9x6jJe9P5sBouyy2SYq/zDL8zEkM5UpHNFbn54AW2H).**
 
 **Abstract:** This project analyzes job postings and LinkedIn profiles in the data field, focusing on insights into the job market and skill requirements. It employs web scraping to gather data, followed by thorough cleaning, exploratory data analysis, and visualization. Using Natural Language Processing, relevant skills are extracted from job descriptions to create a recommendation system for matching job postings with candidate profiles. Additionally, a Random Forest Classifier model predicts job prospects based on education, skills, and experience, evaluated through various metrics and feature importance analysis. The project aims to offer valuable insights for job seekers, employers, and educational institutions in data science and analytics. 
