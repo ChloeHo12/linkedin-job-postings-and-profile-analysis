@@ -98,7 +98,7 @@ filtered_skills= [token for token in tokens if token.isalnum() and token not in 
 cleaned_text_skills = ' '.join(filtered_skills)
 vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform([cleaned_text_skills])
-skill_names = vectorizer.get_feature_names()
+skill_names = vectorizer.get_feature_names_out()
 tfidf_scores = X.T.toarray().flatten()
 skill_tfidf_scores = list(zip(skill_names, tfidf_scores))
 sorted_skills = sorted(skill_tfidf_scores, key=lambda x: x[1], reverse=True)
@@ -120,9 +120,8 @@ relevant_libraries = ['matplotlib', 'numpy', 'pandas', 'nltk', 'seaborn', 'sciki
                      'pytorch', 'keras', 'beautifulsoup', 'scipy', 'statsmodels']
 filtered_lib = [token for token in tokens if token.isalnum() and token not in stop_words and token.lower() in relevant_libraries]
 cleaned_text_lib = ' '.join(filtered_lib)
-vectorizer = TfidfVectorizer(stop_words='english')
 X = vectorizer.fit_transform([cleaned_text_lib])
-lib_names = vectorizer.get_feature_names()
+lib_names = vectorizer.get_feature_names_out()
 tfidf_scores = X.T.toarray().flatten()
 lib_tfidf_scores = list(zip(lib_names, tfidf_scores))
 sorted_lib = sorted(lib_tfidf_scores, key=lambda x: x[1], reverse=True)
