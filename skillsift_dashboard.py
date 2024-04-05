@@ -10,6 +10,7 @@ import plotly.express as px
 import nltk
 nltk.download('wordnet')
 nltk.download('punkt')
+nltk.download('stopwords')
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
