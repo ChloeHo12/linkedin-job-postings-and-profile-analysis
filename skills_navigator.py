@@ -25,7 +25,7 @@ st.set_page_config(
 )
 st.markdown("<h1 style='text-align: center;'>Data Skills Dashboard</h1>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center;'>Unveiling insights into the job market and skill requirements</h4>", unsafe_allow_html=True)
-st.markdown("<h6 style='text-align: center;'>Public data scraped from LinkedIn, by Chloe Ho", unsafe_allow_html=True)
+st.markdown("<h6 style='text-align: center;'>Public data scraped from LinkedIn", unsafe_allow_html=True)
 st.markdown("<hr>", unsafe_allow_html=True)  # Add line separator
 
 # Load dataframes
