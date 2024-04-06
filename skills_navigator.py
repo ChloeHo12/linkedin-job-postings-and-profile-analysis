@@ -16,6 +16,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from collections import Counter
 from sklearn.metrics.pairwise import linear_kernel
+from sklearn import preprocessing
 
 # Page title
 st.set_page_config(
@@ -177,3 +178,66 @@ def get_job_recommendations(user_profile, top_n):
 
 recommended_jobs = get_job_recommendations(user_profile, top_n=10)
 st.write(recommended_jobs)
+
+# ML Model Deployment
+st.markdown(f"<h3 style='color:#B19CD9;'>Chances of Landing a Data Job</h3>", unsafe_allow_html=True)
+html_temp = """
+    <div style="background:#025246 ;padding:10px">
+    <h2 style="color:white;text-align:center;">Job Prospect Prediction</h2>
+    </div>
+    """
+st.markdown(html_temp, unsafe_allow_html = True)
+
+model = pickle.load(open('model.pkl', 'rb'))
+encoder_dict = pickle.load(open('encoder.pkl', 'rb')) 
+
+major_list = list(profile_df[profile_df['Major'] != 'Other']['Major'].unique())
+
+Connections = st.text_input("Enter the number of your LinkedIn connections:","0") 
+Uni_ranking = st.text_input("Enter your University Ranking:","0") 
+Degree_type = st.selectbox("Choose your Degree type:",["Bachelor","Master","PhD","High School"]) 
+Major = st.selectbox("Choose your Major:", major_list) 
+Has_certification = st.selectbox("Do you have data skills certification (1 for yes, 0 for no)?",[1,0]) 
+Python = st.selectbox("Are you familiar with Python?",["yes","no"]) 
+SQL = st.selectbox("Are you familiar with SQL?",["yes","no"]) 
+Java = st.selectbox("Are you familiar with Java?",["yes","no"]) 
+Machine_learning = st.selectbox("Are you familiar with Machine Learning?",["yes","no"]) 
+Statistical_analysis = st.selectbox("Are you familiar with Statistical Analysis?",["yes","no"]) 
+Visualization = st.selectbox("Are you familiar with Visualization tools?",["yes","no"]) 
+Software_development = st.selectbox("Are you familiar with software development?",["yes","no"]) 
+Git = st.selectbox("Are you familiar with Version Control (i.e Git)?",["yes","no"]) 
+HTML_CSS = st.selectbox("Are you familiar with HTML/CSS?",["yes","no"]) 
+R = st.selectbox("Are you familiar with R programming?",["yes","no"]) 
+AI = st.selectbox("Are you familiar with AI modeling?",["yes","no"]) 
+
+if st.button("Predict"): 
+    features = [[Connections,Uni_ranking,Degree_type,Major,Has_certification,Python,SQL,Java,Machine_learning,Statistical_analysis,
+    Visualization,Software_development, Git, HTML_CSS, AI, R]]
+    data = {'Connections': int(Connections), 'Uni_ranking': int(Uni_ranking),'Degree_type': Degree_type, 
+    'Major': Major, 'Has_certification': Has_certification, 'Python': Python, 'SQL': SQL, 'Java': Java, 
+    'Machine_learning': Machine_learning, 'Statistical_analysis': Statistical_analysis, 'Visualization': Visualization,
+    'Software_development': Software_development, 'Git': Git, 'HTML_CSS': HTML_CSS, 'R': R, 'AI': AI}
+    print(data)
+    df=pd.DataFrame([list(data.values())], columns=['Connections', 'Uni_ranking', 'Degree_type', 'Major', 'Has_certification', 'Python', 'SQL', 'Java', 'Machine_learning', 'Statistical_analysis', 'Visualization', 'Software_development', 'Git', 'HTML_CSS', 'R', 'AI'])
+            
+    category_col = ['Major', 'Degree_type', 'Python', 'Java', 'R', 'Visualization', 'SQL', 'Statistical_analysis', 'Machine_learning', 'Git', 'HTML_CSS', 'Software_development', 'AI'] 
+    for cat in encoder_dict:
+        for col in df.columns:
+            le = preprocessing.LabelEncoder()
+            if cat == col:
+                le.classes_ = encoder_dict[cat]
+                for unique_item in df[col].unique():
+                    if unique_item not in le.classes_:
+                        df[col] = ['Unknown' if x == unique_item else x for x in df[col]]
+                df[col] = le.fit_transform(df[col])
+
+    features_list = df.values.tolist()      
+    prediction = model.predict(features_list)
+    output = int(prediction[0])
+
+    if output == 1:
+        text = "100%!"
+    else:
+        text = "Not too high!"
+
+    st.success('Your prospect of landing a data job is {}'.format(text))
