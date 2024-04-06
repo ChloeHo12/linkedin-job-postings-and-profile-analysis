@@ -5,16 +5,16 @@ import pickle
 # Visualization libraries
 import matplotlib.pyplot as plt
 import seaborn as sns
+from wordcloud import WordCloud
 import plotly.express as px
 
 # NLP library
 import nltk
-nltk.download('wordnet')
-nltk.download('punkt')
-nltk.download('stopwords')
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+nltk.download('punkt')
+nltk.download('stopwords')
 from collections import Counter
 from sklearn.metrics.pairwise import linear_kernel
 from sklearn import preprocessing
