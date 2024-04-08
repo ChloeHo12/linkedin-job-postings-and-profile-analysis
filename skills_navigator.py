@@ -5,7 +5,6 @@ import pickle
 # Visualization libraries
 import matplotlib.pyplot as plt
 import seaborn as sns
-from wordcloud import WordCloud
 import plotly.express as px
 
 # NLP library
@@ -18,6 +17,7 @@ nltk.download('stopwords')
 from collections import Counter
 from sklearn.metrics.pairwise import linear_kernel
 from sklearn import preprocessing
+
 
 # Page title
 st.set_page_config(
@@ -122,6 +122,7 @@ relevant_libraries = ['matplotlib', 'numpy', 'pandas', 'nltk', 'seaborn', 'sciki
                      'pytorch', 'keras', 'beautifulsoup', 'scipy', 'statsmodels']
 filtered_lib = [token for token in tokens if token.isalnum() and token not in stop_words and token.lower() in relevant_libraries]
 cleaned_text_lib = ' '.join(filtered_lib)
+vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform([cleaned_text_lib])
 lib_names = vectorizer.get_feature_names_out()
 tfidf_scores = X.T.toarray().flatten()
@@ -180,7 +181,7 @@ def get_job_recommendations(user_profile, top_n):
 recommended_jobs = get_job_recommendations(user_profile, top_n=10)
 st.write(recommended_jobs)
 
-# ML Model Deployment
+# Model Deployment
 st.markdown(f"<h3 style='color:#B19CD9;'>Chances of Landing a Data Job</h3>", unsafe_allow_html=True)
 html_temp = """
     <div style="background:#025246 ;padding:10px">
