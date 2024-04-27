@@ -72,12 +72,12 @@ with col1:
     st.plotly_chart(fig)
 
 # Distribution of industries
-industry_counts = job_df['Job_function'].value_counts()
+industry_counts = job_df['Industries'].value_counts()
 threshold = 20
 other_count = industry_counts[industry_counts < threshold].sum()
 industry_counts_filtered = industry_counts[industry_counts >= threshold]
 industry_counts_df = pd.DataFrame(industry_counts_filtered).reset_index()
-industry_counts_df.columns = ['Job_function', 'count']
+industry_counts_df.columns = ['Industries', 'count']
 fig2 = px.pie(industry_counts_df, values='count', names='Job_function', title='Distribution of industries')
 fig2.update_layout(width=600, height=400)  
 with col2:
