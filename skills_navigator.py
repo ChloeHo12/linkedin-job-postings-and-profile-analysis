@@ -89,8 +89,8 @@ fig2 = px.pie(industry_counts_df, values='count', names='Industries', title='Dis
 fig2.update_layout({
     'plot_bgcolor': 'rgba(0, 0, 0, 0)',
     'paper_bgcolor': 'rgba(0, 0, 0, 0)',
-    'width': 600,
-    'height': 450,
+    'width': 500,
+    'height': 400,
     'showlegend': True,
     'legend': {'x': 1.3, 'y': 0.9}
 })
