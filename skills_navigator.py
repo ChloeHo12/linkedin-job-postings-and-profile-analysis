@@ -251,7 +251,7 @@ if st.button("Predict"):
     output = int(prediction[0])
 
     if output == 1:
-        text = "100%!"
+        text = "High!"
     else:
         text = "Not too high!"
 
