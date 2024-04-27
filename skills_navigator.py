@@ -62,11 +62,27 @@ with st.sidebar:
 # EDA
 # Distribution of job titles
 st.markdown(f"<h3 style='color:#B19CD9;'>Exploratory Data Analysis</h3>", unsafe_allow_html=True)
+# job_counts = job_df['job_title_categorized'].value_counts()
+# job_counts_df = pd.DataFrame(job_counts).reset_index()
+# job_counts_df.columns = ['job_title_categorized', 'count']
+# fig = px.pie(job_counts_df, values='count', names='job_title_categorized', title='Distribution of job titles', color_discrete_sequence=px.colors.qualitative.Pastel)
+# fig.update_layout(width=500, height=400)  
 job_counts = job_df['job_title_categorized'].value_counts()
+
+# Create a DataFrame with counts
 job_counts_df = pd.DataFrame(job_counts).reset_index()
 job_counts_df.columns = ['job_title_categorized', 'count']
-fig = px.pie(job_counts_df, values='count', names='job_title_categorized', title='Distribution of job titles', color_discrete_sequence=px.colors.qualitative.Pastel)
-fig.update_layout(width=500, height=400)  
+
+# Create the pie chart
+fig = px.pie(job_counts_df, values='count', names='job_title_categorized', title='Distribution of job titles')
+fig.update_layout({
+    'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+    'paper_bgcolor': 'rgba(0, 0, 0, 0)',
+    'showlegend': True,
+    'width': 500,
+    'height': 400
+})
+
 col1, col2 = st.columns(2)
 with col1:
     st.plotly_chart(fig)
