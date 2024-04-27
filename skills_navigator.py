@@ -195,11 +195,10 @@ encoder_dict = pickle.load(open('encoder.pkl', 'rb'))
 
 major_list = list(profile_df[profile_df['Major'] != 'Other']['Major'].unique())
 
-Connections = st.text_input("Enter the number of your LinkedIn connections:","0") 
 Uni_ranking = st.text_input("Enter your University Ranking:","0") 
 Degree_type = st.selectbox("Choose your Degree type:",["Bachelor","Master","PhD","High School"]) 
 Major = st.selectbox("Choose your Major:", major_list) 
-Has_certification = st.selectbox("Do you have data skills certification (1 for yes, 0 for no)?",[1,0]) 
+Has_certification = st.selectbox("Do you have data skills certification?", ["yes","no"]) 
 Python = st.selectbox("Are you familiar with Python?",["yes","no"]) 
 SQL = st.selectbox("Are you familiar with SQL?",["yes","no"]) 
 Java = st.selectbox("Are you familiar with Java?",["yes","no"]) 
@@ -208,21 +207,21 @@ Statistical_analysis = st.selectbox("Are you familiar with Statistical Analysis?
 Visualization = st.selectbox("Are you familiar with Visualization tools?",["yes","no"]) 
 Software_development = st.selectbox("Are you familiar with software development?",["yes","no"]) 
 Git = st.selectbox("Are you familiar with Version Control (i.e Git)?",["yes","no"]) 
-HTML_CSS = st.selectbox("Are you familiar with HTML/CSS?",["yes","no"]) 
 R = st.selectbox("Are you familiar with R programming?",["yes","no"]) 
 AI = st.selectbox("Are you familiar with AI modeling?",["yes","no"]) 
 
 if st.button("Predict"): 
     features = [[Connections,Uni_ranking,Degree_type,Major,Has_certification,Python,SQL,Java,Machine_learning,Statistical_analysis,
-    Visualization,Software_development, Git, HTML_CSS, AI, R]]
-    data = {'Connections': int(Connections), 'Uni_ranking': int(Uni_ranking),'Degree_type': Degree_type, 
+    Visualization,Software_development, Git, AI, R]]
+    data = {'Uni_ranking': int(Uni_ranking),'Degree_type': Degree_type, 
     'Major': Major, 'Has_certification': Has_certification, 'Python': Python, 'SQL': SQL, 'Java': Java, 
     'Machine_learning': Machine_learning, 'Statistical_analysis': Statistical_analysis, 'Visualization': Visualization,
     'Software_development': Software_development, 'Git': Git, 'HTML_CSS': HTML_CSS, 'R': R, 'AI': AI}
     print(data)
-    df=pd.DataFrame([list(data.values())], columns=['Connections', 'Uni_ranking', 'Degree_type', 'Major', 'Has_certification', 'Python', 'SQL', 'Java', 'Machine_learning', 'Statistical_analysis', 'Visualization', 'Software_development', 'Git', 'HTML_CSS', 'R', 'AI'])
+    df=pd.DataFrame([list(data.values())], columns=['Uni_ranking', 'Degree_type', 'Major', 'Has_certification', 'Python', 'SQL', 'Java', 'Machine_learning', 'Statistical_analysis', 'Visualization', 'Software_development', 'Git', 'R', 'AI'])
             
-    category_col = ['Major', 'Degree_type', 'Python', 'Java', 'R', 'Visualization', 'SQL', 'Statistical_analysis', 'Machine_learning', 'Git', 'HTML_CSS', 'Software_development', 'AI'] 
+    category_col = ['Major', 'Degree_type', 'Python', 'Java', 'R', 'Visualization', 'SQL', 'Statistical_analysis', 'Machine_learning', 'Git', 'Software_development', 'AI', 'Has_certification']
+    lbl_data = profile_df.copy() 
     for cat in encoder_dict:
         for col in df.columns:
             le = preprocessing.LabelEncoder()
