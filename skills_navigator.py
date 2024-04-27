@@ -205,13 +205,13 @@ Java = st.selectbox("Are you familiar with Java?",["yes","no"])
 Machine_learning = st.selectbox("Are you familiar with Machine Learning?",["yes","no"]) 
 Statistical_analysis = st.selectbox("Are you familiar with Statistical Analysis?",["yes","no"]) 
 Visualization = st.selectbox("Are you familiar with Visualization tools?",["yes","no"]) 
-Software_development = st.selectbox("Are you familiar with software development?",["yes","no"]) 
+Software_development = st.selectbox("Are you familiar with Software Development?",["yes","no"]) 
 Git = st.selectbox("Are you familiar with Version Control (i.e Git)?",["yes","no"]) 
 R = st.selectbox("Are you familiar with R programming?",["yes","no"]) 
 AI = st.selectbox("Are you familiar with AI modeling?",["yes","no"]) 
 
 if st.button("Predict"): 
-    features = [[Connections,Uni_ranking,Degree_type,Major,Has_certification,Python,SQL,Java,Machine_learning,Statistical_analysis,
+    features = [[Uni_ranking,Degree_type,Major,Has_certification,Python,SQL,Java,Machine_learning,Statistical_analysis,
     Visualization,Software_development, Git, AI, R]]
     data = {'Uni_ranking': int(Uni_ranking),'Degree_type': Degree_type, 
     'Major': Major, 'Has_certification': Has_certification, 'Python': Python, 'SQL': SQL, 'Java': Java, 
