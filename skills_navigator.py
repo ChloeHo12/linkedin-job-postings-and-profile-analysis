@@ -85,8 +85,8 @@ other_count = industry_counts[industry_counts < threshold].sum()
 industry_counts_filtered = industry_counts[industry_counts >= threshold]
 industry_counts_df = pd.DataFrame(industry_counts_filtered).reset_index()
 industry_counts_df.columns = ['Industries', 'count']
-fig = px.pie(industry_counts_df, values='count', names='Industries', title='Distribution of industries')
-fig.update_layout({
+fig2 = px.pie(industry_counts_df, values='count', names='Industries', title='Distribution of industries')
+fig2.update_layout({
     'plot_bgcolor': 'rgba(0, 0, 0, 0)',
     'paper_bgcolor': 'rgba(0, 0, 0, 0)',
     'width': 600,
