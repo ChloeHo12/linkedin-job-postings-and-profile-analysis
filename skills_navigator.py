@@ -230,7 +230,7 @@ if st.button("Predict"):
     data = {'Uni_ranking': int(Uni_ranking),'Degree_type': Degree_type, 
     'Major': Major, 'Has_certification': Has_certification, 'Python': Python, 'SQL': SQL, 'Java': Java, 
     'Machine_learning': Machine_learning, 'Statistical_analysis': Statistical_analysis, 'Visualization': Visualization,
-    'Software_development': Software_development, 'Git': Git, 'HTML_CSS': HTML_CSS, 'R': R, 'AI': AI}
+    'Software_development': Software_development, 'Git': Git, 'R': R, 'AI': AI}
     print(data)
     df=pd.DataFrame([list(data.values())], columns=['Uni_ranking', 'Degree_type', 'Major', 'Has_certification', 'Python', 'SQL', 'Java', 'Machine_learning', 'Statistical_analysis', 'Visualization', 'Software_development', 'Git', 'R', 'AI'])
             
